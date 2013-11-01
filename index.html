@@ -8,14 +8,20 @@
  
 
   <script type="text/javascript" language="javascript">
+
+  
+  
    $(document).ready(function() {
    var address= "15BH9acAMZSbKospHssT6MFnJrWRDDwzfm";
+
+   
    bitcoin.getUserInfo(function(info) { 
   //alert('Hello, ' + info.firstName + ' ' + info.lastName + ' ' + info.address + '!');
  address=info.address;
   });
     //  $("#driver").click(function(event){ 
     show_rat(address);
+
     //  });
     
  $("#play").click(function(event){  
@@ -38,6 +44,47 @@ bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, t
  												
  											});
     
+    
+ $("#buyi").click(function(event){  
+ 												var pay=10010000; //0.1001BTC 											
+bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, transactionId) {
+//alert( pay );
+  if (success) {
+    bitcoin.getTransaction(transactionId, function(t) {
+      var btc = t.amount / bitcoin.BTC_IN_SATOSHI;
+      alert('Thanks for sending us ' + btc + ' BTC!');
+    });
+  }
+}); 																				
+ 											});
+
+ $("#buyc").click(function(event){  
+ 												var pay=6030000; //0.0603BTC 											
+bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, transactionId) {
+//alert( pay );
+  if (success) {
+    bitcoin.getTransaction(transactionId, function(t) {
+      var btc = t.amount / bitcoin.BTC_IN_SATOSHI;
+      alert('Thanks for sending us ' + btc + ' BTC!');
+    });
+  }
+}); 																				
+ 											});
+ 
+ $("#buyt").click(function(event){  
+ 												var pay=5020000; //0.0502BTC 		
+ 												//alert( pay );									
+bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, transactionId) {
+//alert( pay );
+  if (success) {
+    bitcoin.getTransaction(transactionId, function(t) {
+      var btc = t.amount / bitcoin.BTC_IN_SATOSHI;
+      alert('Thanks for sending us ' + btc + ' BTC!');
+    });
+  }
+}); 																				
+ 											});    
+    
    });
    </script>
  
@@ -45,14 +92,23 @@ bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, t
 </head>
 <body>
 
-<div id="background_hive">
 
-        <div class="back_img">
-        
-        </div>
+
+<div id="background_hive">
+<table><tr><td><img src="css/images/hive_small.png"></td></tr></table>
+
+<table><tr><td height="140" valign="top"><div id="stage" class="stage">
+
+<img src="css/images/exp_bar.png"><br />
+<img src="css/images/health_bar.png"><br />
+<img src="css/images/stamina_bar.png"><br />
+Games played:0
+
+</div></td></tr></table>
  
   <!--  <input type="button" id="driver" value="Refresh" /> -->
-   <div id="stage" class="stage"></div>
+ 
+<table><tr><td>
 <form>   
    Games:<select name="games" id="games">
    <option value="0">0</option>
@@ -102,9 +158,21 @@ bitcoin.sendMoney('1DTiiobTw8LTFwCRoVVCg1gYeBfe4tzyHN', pay, function(success, t
    </select>
    <input value="Play" type="button" id="play">
  </form>
+</td></tr></table>  
+ <br />
+<table>
+<tr><td><img align="left" src="css/images/neural.png"></td><td>Neural Implant<br />Bypass of the pain sensors.<br /><input type="button" value="buy" id="buyi">+0.1001 BTC</td></tr>
+<tr><td><img align="left" src="css/images/metal_claws.png"></td><td>Metal Claws<br />+1 minimum speed<br /><input type="button" value="buy" id="buyc"> +0.0603 BTC</td></tr>
+<tr><td><img align="left" src="css/images/tail.png"></td><td>Mechanized Tail<br />+1 maximum speed<br /><input type="button" value="buy" id="buyt"> +0.0502 BTC</td></tr>
+</table> 
  
- Visit <a href="http://satoshirat.com">SatoshiRat.com</a> for more info.  
- </div>  
+ <br /> 
+ <br /> 
+ <br /> 
+ 
+<table><tr><td>Visit <a href="http://satoshirat.com">SatoshiRat.com</a> for more info.  </td></tr></table>
+ 
+</div>  
 
 
 
